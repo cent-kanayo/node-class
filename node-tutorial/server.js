@@ -65,13 +65,8 @@ server.get('/products/:id', (req, res) => {
   const product = products.find((product) => product.id === +id);
   res.json(product);
 });
-server.post();
-server.put();
-server.patch();
-server.delete();
-server.options();
 server.all('*', (req, res) => {
   res.send('404, route does not exist');
 });
 
-server.listen(3500, console.log('Server is listening on port 3500'));
+server.listen(4000, console.log('Server is listening on port 3500'));
