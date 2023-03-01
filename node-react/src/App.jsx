@@ -9,7 +9,9 @@ function App() {
 
   const fetchProducts = async () => {
     try {
-      const { data } = await axios.get('http://localhost:3500/products');
+      const { data } = await axios.get(
+        'http://localhost:3500/products?sort=desc'
+      );
       setProducts(data.result);
     } catch (error) {
       console.log(error);
