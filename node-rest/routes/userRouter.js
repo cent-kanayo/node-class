@@ -5,7 +5,7 @@ const User = require('../models/User');
 // const router = express.Router();
 const router = Router();
 
-router.get('/user', async (req, res) => {
+router.get('/users', async (req, res) => {
   // fetch all notes
   try {
     const notes = await User.find();

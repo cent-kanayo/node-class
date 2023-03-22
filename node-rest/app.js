@@ -4,6 +4,8 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const notesRouter = require('./routes/notesRouter');
 const userRouter = require('./routes/userRouter');
+const notFound = require('./middlewares/notFound');
+const errorHandler = require('./middlewares/errorHandler');
 
 // Model
 
@@ -101,6 +103,8 @@ app.patch('/api/v1/update-product/:title', async (req, res) => {
   }
 });
 
-app.all('*', (req, res) => {
-  res.status(404).json({ status: 'Fail', result: 'This route does not exist' });
-});
+// app.all('*', (req, res) => {
+//   res.status(404).json({ status: 'Fail', result: 'This route does not exist' });
+// });
+app.use(errorHandler);
+app.use(notFound);
